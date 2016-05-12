@@ -12,7 +12,7 @@ should be directed either in email to
 or as an issue at https://github.com/NIEM/niem-code-lists-spec/issues.
 
 Development of version 1.0 of this specification is being tracked in [the dev-1.0
-branch](https://github.com/NIEM/niem-code-lists-spec/tree/dev-1.0) (this branch just holds the README file)
+branch](https://github.com/NIEM/niem-code-lists-spec/tree/dev-1.0).  (The "readme" branch just holds this README file)
 
 For more information, see [the NIEM website's code lists
 page](http://niem.github.io/technical/code-lists/).
