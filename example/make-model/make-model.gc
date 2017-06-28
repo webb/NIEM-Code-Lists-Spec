@@ -4,7 +4,7 @@
              xmlns:gca="http://example.org/namespace/genericode-appinfo">
    <Annotation>
       <AppInfo>
-         <gca:ConformanceTargets ct:conformanceTargets="http://reference.niem.gov/niem/specification/code-lists/1.0/#GenericodeCodeListDocument"/>
+         <gca:ConformanceTargets ct:conformanceTargets="http://reference.niem.gov/niem/specification/code-lists/4.0/#GenericodeCodeListDocument"/>
       </AppInfo>
   </Annotation>
    <Identification>

@@ -6,19 +6,19 @@ June 27, 2017
 
 NIEM Technical Architecture Committee (NTAC)
 
-Authors
-
-   Webb Roberts, Georgia Tech Research Institute (<webb.roberts@gtri.gatech.edu>), Lead Author
-
 Abstract
 
    This document establishes methods for using code list artifacts with NIEM information exchange specifications. It provides for the use of Genericode documents, as well as for CSV code lists. It supports the use of code lists at run time and at schema definition time. It also includes identifiers for well-known columns that have semantics needed across the NIEM community.
+
+Authors
+
+   Webb Roberts, Georgia Tech Research Institute (<webb.roberts@gtri.gatech.edu>), Lead Author
 
 Document Status
 
    This document is a specification product of the NIEM Technical Architecture Committee (NTAC). This version of this document is normative for the conformance targets it defines.
 
-   Please submit any comments on this specification. You can send email to niem-comments@lists.gatech.edu, or submit an issue at https://github.com/NIEM/niem-code-lists-spec/issues.
+   Updates, revisions, and errata for this specification are posted to https://github.com/NIEM/NIEM-Code-Lists-Spec. Please submit comments on this specification as issues at https://github.com/NIEM/NIEM-Code-Lists-Spec/issues.
 
 Table of Contents
 
@@ -92,9 +92,9 @@ Table of Tables
 
       3. Mechanism for resolving code lists. This specification leverages XML Catalogs to resolve code list identifier URIs into code list documents.
 
-      4. Mechanism for identifying the use of a code list in an XML message, such that it can be identified or specified by the exchanged message itself. This specification provides several XML attributes (in the [code list instance namespace]) that label XML element content as corresponding to code values in a code list.
+      4. Mechanism for identifying the use of a code list in an XML message, such that it can be identified or specified by the exchanged message itself. This specification provides several XML attributes (in the [code lists instance namespace]) that label XML element content as corresponding to code values in a code list.
 
-      5. Mechanism for identifying use of a code list in an XML Schema, such that it can be determined at IEPD development time or system load time. This specification provides a small XML vocabulary (in the [code list schema appinfo namespace]) that annotates XML Schema component definitions, to describe correspondences between XML content and code values in a code list.
+      5. Mechanism for identifying use of a code list in an XML Schema, such that it can be determined at IEPD development time or system load time. This specification provides a small XML vocabulary (in the [code lists schema appinfo namespace]) that annotates XML Schema component definitions, to describe correspondences between XML content and code values in a code list.
 
       6. Matching values in an XML instance document to code list distinct entries: This specification defines matches between a code list binding and a code list. Each code list binding may result in zero or more matches to [distinct entries] in a [code list]. 
 
@@ -126,7 +126,7 @@ Table of Tables
 
 1.5. Identifying a code list at run time
 
-   An XML document can connect its contents to code lists using attributes that appear in the instance. This is called a run-time binding, and connects the simple content of an element to a code value in a code list. The attributes that define this connection are in the [code list instance namespace]. They are:
+   An XML document can connect its contents to code lists using attributes that appear in the instance. This is called a run-time binding, and connects the simple content of an element to a code value in a code list. The attributes that define this connection are in the [code lists instance namespace]. They are:
 
       *  Attribute cli:codeListURI: Carries an [absolute URI] that acts as a [code list identifier]. It identifies a code list to which the value belongs.
 
@@ -165,11 +165,9 @@ Table of Tables
 
       *  The connection to code lists is explicit in the XML instance document, rather than being defined in schemas that are not exchanged.
 
-   In addition to the above attributes, the code list instance namespace defines a complex type, cli:CodeType. This is provided for the convenience of developers of information exchange specifications, such as NIEM IEPDs. An element that is of type cli:CodeType will have the above attributes, and can identify code lists at run time. Use of this type is not required. Any schema can define a type that includes the above attributes. The presence of the attributes in exchanged XML documents is what introduces the use of code lists at run time.
-
 1.6. Identifying a code list at schema time
 
-   This specification defines an annotation vocabulary, the [code list schema appinfo namespace], which allows connections between code lists and elements, attributes, and types that are defined in an XML Schema. This is managed with two annotation elements:
+   This specification defines an annotation vocabulary, the [code lists schema appinfo namespace], which allows connections between code lists and elements, attributes, and types that are defined in an XML Schema. This is managed with two annotation elements:
 
       *  clsa:SimpleCodeListBinding: a simple code list binding connects the simple content of an element or the value of an attribute to a code list. It is added to a schema component definition as an appinfo annotation. A simple code list binding may be attached to top-level attribute declarations, element declarations, simple type definitions, and complex type definitions. It has the following attributes:
 
@@ -300,9 +298,9 @@ Table of Tables
 
       *  ct ("conformance targets"): The namespace defined by [CTAS] for the ct:conformanceTargets attribute: "http://release.niem.gov/niem/conformanceTargets/3.0/".
 
-      *  cli ("code list instance"): Defined by this specification, the code list instance namespace defines attributes that connect XML element content to code lists at run time: "http://reference.niem.gov/niem/specification/code-lists/4.0/code-lists-instance/". The XML schema document defining this namespace is provided in Appendix B.1, XML Schema document for NIEM 3 and NIEM 4, below.
+      *  cli ("code lists instance"): Defined by this specification, the code lists instance namespace defines attributes that connect XML element content to code lists at run time: "http://reference.niem.gov/niem/specification/code-lists/4.0/code-lists-instance/". The XML schema document defining this namespace is provided in Appendix B, XML Schema document for the code lists instance namespace, below.
 
-      *  clsa ("code list schema appinfo"): Defined by this specification, the code list schema appinfo namespace defines an XML vocabulary for use in xs:appinfo on XML Schema component definitions, which connect XML element and attribute content to code lists: "http://reference.niem.gov/niem/specification/code-lists/4.0/code-lists-schema-appinfo/". The XML schema document defining this namespace is provided in Appendix C, XML Schema document for the code list schema appinfo namespace, below.
+      *  clsa ("code list schema appinfo"): Defined by this specification, the code lists schema appinfo namespace defines an XML vocabulary for use in xs:appinfo on XML Schema component definitions, which connect XML element and attribute content to code lists: "http://reference.niem.gov/niem/specification/code-lists/4.0/code-lists-schema-appinfo/". The XML schema document defining this namespace is provided in Appendix C, XML Schema document for the code list schema appinfo namespace, below.
 
       *  gc ("Genericode"): The namespace for the XML vocabulary for Genericode, as defined by [Genericode]: "http://docs.oasis-open.org/codelist/ns/genericode/1.0/".
 
@@ -384,7 +382,7 @@ Table of Tables
 
       *  [type definition] of an [element], as defined by [XMLSchema1] Section 3.3.5, Element Declaration Information Set Contributions
 
-   To facilitate code lists representing ranges of values as described in Section 7.4, Columns supporting ranges of values, below, the following terms are adapted from [XMLSchema2], Section 4.2, Fundamental Facets, Subsection 4.2.1, bounded:
+   To facilitate code lists representing ranges of values as described in Section 7.5, Columns supporting ranges of values, below, the following terms are adapted from [XMLSchema2], Section 4.2, Fundamental Facets, Subsection 4.2.1, bounded:
 
       *  The term inclusive upper bound is as defined by [XMLSchema2] Section 4.2.1, bounded.
 
@@ -658,7 +656,7 @@ Rule 3-2. Document with conformance target is a code list-enabled schema documen
 
 4.4. Run-time binding
 
-   This document provides an XML Schema document for run-time binding of XML content to code lists. This schema is provided in Appendix B.1, XML Schema document for NIEM 3 and NIEM 4, below.
+   This document provides an XML Schema document for run-time binding of XML content to code lists. This schema is provided in Appendix B, XML Schema document for the code lists instance namespace, below.
 
 4.4.1. Syntax for run-time code list binding
 
@@ -666,7 +664,7 @@ Rule 4-1. Content in the "cli" namespace conforms to schema
 
    [Rule 4-1] (INS)
 
-      Any XML content in the namespace http://reference.niem.gov/niem/specification/code-lists/4.0/code-lists-instance/ MUST be [schema-valid] to the XML Schema definitions contained in the schema document in Appendix B.1, XML Schema document for NIEM 3 and NIEM 4.
+      Any XML content in the namespace http://reference.niem.gov/niem/specification/code-lists/4.0/code-lists-instance/ MUST be [schema-valid] to the XML Schema definitions contained in the schema document in Appendix B, XML Schema document for the code lists instance namespace.
 
 Rule 4-2. Code list URI is an absolute URI
 
@@ -1086,7 +1084,7 @@ Rule 6-6. Genericode file as a code list document
 
       *  "#code": A binding will use the column name "#code" to refer to a default code value in a code list. Each class of [code list document] defines how a reference to "#code" is resolved (q.v. Rule 5-5, CSV file as a code list document, above, and Rule 6-6, Genericode file as a code list document, above). A binding that doesn't specify a column name will default to column name "#code".
 
-      *  "#range": A binding will use the column name "#range" to match into a range of values, as described by Section 7.4, Columns supporting ranges of values, below. 
+      *  "#range": A binding will use the column name "#range" to match into a range of values, as described by Section 7.5, Columns supporting ranges of values, below. 
 
 7.1. Column: "code"
 
@@ -1094,7 +1092,7 @@ Rule 6-6. Genericode file as a code list document
 
    [Column identifier]: http://reference.niem.gov/niem/specification/code-lists/4.0/column/code
 
-   Description: A value that stands for some other value or meaning, or acts as an enumeration. A code value may be a single-column key within its code list, to uniquely identify some distinct entry.
+   Description: A "code" column carries a value that stands for some other value or meaning, or acts as an enumeration. A code value may be a single-column key within its code list, to uniquely identify some distinct entry.
 
 7.2. Column: "definition"
 
@@ -1102,7 +1100,7 @@ Rule 6-6. Genericode file as a code list document
 
    [Column identifier]: http://reference.niem.gov/niem/specification/code-lists/4.0/column/definition
 
-   Description: The human-readable meaning of a [distinct entry]. This is analogous to the data definition of an enumerated code in a simple type in a NIEM schema.
+   Description: A "definition" column carries a human-readable meaning of a [distinct entry]. This is analogous to the data definition of an enumerated code in a simple type in a NIEM schema.
 
 7.3. Column: "subclass-of"
 
@@ -1110,9 +1108,17 @@ Rule 6-6. Genericode file as a code list document
 
    [Column identifier]: http://reference.niem.gov/niem/specification/code-lists/4.0/column/subclass-of
 
-   Description: A subclass-of column indicates that a given distinct entry is a subclass of some other distinct entry. It is a key reference within its code list, referring to a distinct entry having the indicated value for its default code column.
+   Description: A "subclass-of" column indicates that a given distinct entry is a subclass of some other distinct entry. It is a key reference within its code list, referring to a distinct entry having the indicated value for its default code column.
 
-7.4. Columns supporting ranges of values
+7.4. Column: "uri"
+
+   [Column name]: uri
+
+   [Column identifier]: http://reference.niem.gov/niem/specification/code-lists/4.0/column/uri
+
+   Description: A "uri" column provides a uniform resource identifier for a distinct entry.
+
+7.5. Columns supporting ranges of values
 
    This specification establishes a set of columns that support code tables that describe ranges of values. This enables code lists to be used that map between sets of values. One use for this is to enable translation between continuous numeric values and discrete enumerated values. Another use is to support fixed-point integer values used to represent more meaningful numeric values. For example, fixed-length bit field values can be mapped to elevation in meters.
 
@@ -1160,7 +1166,7 @@ Rule 6-6. Genericode file as a code list document
 
    Matching into Table Table 7-1, Example code list: directions, above, would yield the [distinct entry] for "southeast", since it is the sole entry with a minimum-inclusive value (112.5) that is less than or equal to 122.31, and a maximum-exclusive value (157.5) that is greater than 122.31.
 
-7.4.1. Column: "minimum-inclusive"
+7.5.1. Column: "minimum-inclusive"
 
    [Column name]: minimum-inclusive
 
@@ -1168,7 +1174,7 @@ Rule 6-6. Genericode file as a code list document
 
    Description: A value that is an [inclusive lower bound] of a range.
 
-7.4.2. Column: "minimum-exclusive"
+7.5.2. Column: "minimum-exclusive"
 
    [Column name]: minimum-exclusive
 
@@ -1176,7 +1182,7 @@ Rule 6-6. Genericode file as a code list document
 
    Description: A value that is an [exclusive lower bound] of a range.
 
-7.4.3. Column: "maximum-inclusive"
+7.5.3. Column: "maximum-inclusive"
 
    [Column name]: maximum-inclusive
 
@@ -1184,7 +1190,7 @@ Rule 6-6. Genericode file as a code list document
 
    Description: A value that is an [inclusive upper bound] of a range.
 
-7.4.4. Column: "maximum-exclusive"
+7.5.4. Column: "maximum-exclusive"
 
    [Column name]: maximum-exclusive
 
@@ -1220,13 +1226,9 @@ Appendix A. References
 
    [XMLSchema2]: Biron, Paul V., and Ashok Malhotra. "XML Schema Part 2: Datatypes Second Edition," October 28, 2004. http://www.w3.org/TR/2004/REC-xmlschema-2-20041028/.
 
-Appendix B. XML Schema documents for the code list instance namespace
+Appendix B. XML Schema document for the code lists instance namespace
 
-   The following XML Schema documents define the [code list instance namespace], a namespace for binding the content of XML documents to code lists at run time. This vocabulary is incorporated into exchange specifications, and appears in exchanged XML documents to express code list bindings at run time. There are two versions provided: one for NIEM 3 and one for NIEM 4.
-
-Appendix B.1. XML Schema document for NIEM 3 and NIEM 4
-
-   The following schema document conforms to NIEM 3 and NIEM 4, and may be integrated into either NIEM 3 or NIEM 4-conformant schema sets.
+   The following XML Schema document defines the [code lists instance namespace], a namespace for binding the content of XML documents to code lists at run time. This vocabulary may be incorporated into exchange specifications, and is used in exchanged XML documents to express code list bindings at run time. This schema document conforms to NIEM 3 and NIEM 4, and may be integrated into either NIEM 3 or NIEM 4-conformant schema sets.
 
    <?xml version="1.0" encoding="US-ASCII"?>
    <xs:schema
@@ -1263,7 +1265,7 @@ Appendix B.1. XML Schema document for NIEM 3 and NIEM 4
 
 Appendix C. XML Schema document for the code list schema appinfo namespace
 
-   The following XML Schema document defines the [code list schema appinfo namespace], a namespace for annotating XML Schema component definitions. These annotations connect XML components to code lists at schema development time.
+   The following XML Schema document defines the [code lists schema appinfo namespace], a namespace for annotating XML Schema component definitions. These annotations connect XML components to code lists at schema development time.
 
    <?xml version="1.0" encoding="US-ASCII"?>
    <xs:schema 

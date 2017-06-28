@@ -2,7 +2,7 @@
 <xs:schema
    ct:conformanceTargets="
      http://reference.niem.gov/niem/specification/naming-and-design-rules/3.0/#ReferenceSchemaDocument
-     http://reference.niem.gov/niem/specification/code-lists/1.0/#SchemaDocument"
+     http://reference.niem.gov/niem/specification/code-lists/4.0/#SchemaDocument"
    targetNamespace="http://example.org/namespace/extension-schema-time"
    version="1"
    xmlns:appinfo="http://release.niem.gov/niem/appinfo/3.0/"
