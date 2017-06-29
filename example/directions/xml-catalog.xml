@@ -4,6 +4,7 @@
        uri="extension.xsd"/>
   <uri name="http://example.org/code-lists/example/directions/code-list/1"
        uri="directions.csv"/>
-  <nextCatalog catalog="../../xml-catalog-for-instances.xml"/>
-  <nextCatalog catalog="niem-subset/xml-catalog.xml"/>
+  <uri name="http://reference.niem.gov/niem/specification/code-lists/4.0/code-lists-instance/"
+     uri="../../code-lists-instance.xsd"/>
+  <nextCatalog catalog="../niem/xml-catalog.xml"/>
 </catalog>
