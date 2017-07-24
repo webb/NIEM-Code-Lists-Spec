@@ -204,7 +204,7 @@ Table of Tables
    Figure 1-3: XML schema defining a simple code list binding
 
       <xs:element name="VehicleMakeCode" type="niem-xs:token"
-                  substitutionGroup="nc:VehicleMake">
+                  substitutionGroup="nc:VehicleMakeAbstract">
         <xs:annotation>
           <xs:documentation>A code for a manufacturer of a vehicle.</xs:documentation>
           <xs:appinfo>
@@ -230,9 +230,9 @@ Table of Tables
           <xs:appinfo>
             <clsa:ComplexCodeListBinding
                 codeListURI="http://example.org/code-list/vehicle-make-model">
-              <clsa:ElementCodeListBinding elementName="nc:VehicleMake"
+              <clsa:ElementCodeListBinding elementName="ext:VehicleMakeCode"
                                            columnName="make"/>
-              <clsa:ElementCodeListBinding elementName="nc:VehicleModel"
+              <clsa:ElementCodeListBinding elementName="ext:VehicleModelCode"
                                            columnName="model"/>
             </clsa:ComplexCodeListBinding>
           </xs:appinfo>
@@ -1679,25 +1679,23 @@ Appendix D.5. Extension schema with schema-time code list binding
    <?xml version="1.0" encoding="us-ascii"?>
    <xs:schema
       ct:conformanceTargets="
-        http://reference.niem.gov/niem/specification/naming-and-design-rules/3.0/#ReferenceSchemaDocument
+        http://reference.niem.gov/niem/specification/naming-and-design-rules/4.0/#ReferenceSchemaDocument
         http://reference.niem.gov/niem/specification/code-lists/4.0/#SchemaDocument"
       targetNamespace="http://example.org/namespace/extension-schema-time"
       version="1"
-      xmlns:appinfo="http://release.niem.gov/niem/appinfo/3.0/"
       xmlns:clsa="http://reference.niem.gov/niem/specification/code-lists/4.0/code-lists-schema-appinfo/"
       xmlns:ct="http://release.niem.gov/niem/conformanceTargets/3.0/"
       xmlns:ext="http://example.org/namespace/extension-schema-time"
-      xmlns:nc="http://release.niem.gov/niem/niem-core/3.0/"
-      xmlns:niem-xs="http://release.niem.gov/niem/proxy/xsd/3.0/"
-      xmlns:structures="http://release.niem.gov/niem/structures/3.0/"
+      xmlns:nc="http://release.niem.gov/niem/niem-core/4.0/"
+      xmlns:niem-xs="http://release.niem.gov/niem/proxy/xsd/4.0/"
       xmlns:xs="http://www.w3.org/2001/XMLSchema">
    
      <xs:annotation>
        <xs:documentation>An extension schema for vehicle make and model values, showing schema-time binding of XML content to a code list.</xs:documentation>
      </xs:annotation>
    
-     <xs:import namespace="http://release.niem.gov/niem/niem-core/3.0/"/>
-     <xs:import namespace="http://release.niem.gov/niem/proxy/xsd/3.0/"/>
+     <xs:import namespace="http://release.niem.gov/niem/niem-core/4.0/"/>
+     <xs:import namespace="http://release.niem.gov/niem/proxy/xsd/4.0/"/>
    
      <xs:element name="Vehicle" type="nc:VehicleType"
                  substitutionGroup="nc:Vehicle">
@@ -1705,9 +1703,9 @@ Appendix D.5. Extension schema with schema-time code list binding
          <xs:appinfo>
            <clsa:ComplexCodeListBinding
                codeListURI="http://example.org/code-list/vehicle-make-model">
-             <clsa:ElementCodeListBinding elementName="nc:VehicleMake"
+             <clsa:ElementCodeListBinding elementName="ext:VehicleMakeCode"
                                           columnName="make"/>
-             <clsa:ElementCodeListBinding elementName="nc:VehicleModel"
+             <clsa:ElementCodeListBinding elementName="ext:VehicleModelCode"
                                           columnName="model"/>
            </clsa:ComplexCodeListBinding>
          </xs:appinfo>
@@ -1715,7 +1713,7 @@ Appendix D.5. Extension schema with schema-time code list binding
      </xs:element>
    
      <xs:element name="VehicleMakeCode" type="niem-xs:token"
-                 substitutionGroup="nc:VehicleMake">
+                 substitutionGroup="nc:VehicleMakeAbstract">
        <xs:annotation>
          <xs:documentation>A code for a manufacturer of a vehicle.</xs:documentation>
          <xs:appinfo>
@@ -1727,7 +1725,7 @@ Appendix D.5. Extension schema with schema-time code list binding
      </xs:element>
    
      <xs:element name="VehicleModelCode" type="niem-xs:token"
-                 substitutionGroup="nc:VehicleModel">
+                 substitutionGroup="nc:VehicleModelAbstract">
        <xs:annotation>
          <xs:documentation>A code for a model of a vehicle.</xs:documentation>
          <xs:appinfo>
@@ -1747,10 +1745,10 @@ Appendix D.6. XML catalog for schema-time code list binding
    <!DOCTYPE catalog PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN" "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
    <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
      <uri name="http://example.org/namespace/extension-schema-time"
-          uri="extension-schema-time.xsd"/>
+          uri="extension.xsd"/>
      <uri name="http://example.org/code-list/vehicle-make-model"
-          uri="make-model.gc"/>
-     <nextCatalog catalog="niem/xml-catalog.xml"/>
+          uri="../make-model.gc"/>
+     <nextCatalog catalog="../../niem/xml-catalog.xml"/>
    </catalog>
    
 
