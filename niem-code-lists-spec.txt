@@ -946,7 +946,7 @@ Rule 4-18. Code list identified by candidate code list identifiers
 
 5. Comma-separated values (CSV) code lists
 
-   This document provides for the use of a [CSV file] as an implementation of a [code list document]. This section lays out the rules for using CSV files as code list documents.
+   This document provides for the use of a [CSV file] as an implementation of a [code list document]. This section lays out the rules for using CSV files as code list documents. The definitions of CSV structural terms are provided by [RFC4180], as noted in Section 2.10, RFC 4180: Comma-separated values (CSV) files, above.
 
 Rule 5-1. CSV code list document is a CSV file
 
@@ -965,8 +965,6 @@ Rule 5-3. CSV column name is not empty
    [Rule 5-3] (CSV-CLD)
 
       A [CSV column name] of a [CSV code list document] MUST not be empty.
-
-   The definitions of CSV structural terms are provided by [RFC4180], as noted in Section 2.10, RFC 4180: Comma-separated values (CSV) files, above.
 
 Rule 5-4. CSV file as a code list document
 
