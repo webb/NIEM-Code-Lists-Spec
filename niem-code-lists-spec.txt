@@ -8,7 +8,7 @@ NIEM Technical Architecture Committee (NTAC)
 
 Abstract
 
-   This document establishes methods for using code list artifacts with NIEM information exchange specifications. It provides for the use of Genericode documents, as well as for CSV code lists. It supports the use of code lists at run time and at schema definition time. It also includes identifiers for well-known columns that have semantics needed across the NIEM community.
+   This document establishes methods for using code list artifacts with NIEM information exchange specifications. It provides for the use of Genericode documents, as well as for CSV code lists. It supports the use of code lists at schema definition time, via annotations for XML Schema documents that bind schema components to code lists. It supports the use of code lists at run time, via XML Schema components for use in XML documents that bind XML data to code lists. It also includes identifiers for well-known columns that have semantics needed across the NIEM community.
 
 Authors
 
@@ -34,9 +34,13 @@ Table of Tables
 
 1. Introduction
 
-   This document establishes methods for using code list artifacts with NIEM information exchange specifications. It provides for the use of Genericode documents, as well as for CSV code lists. It supports the use of code lists at run time and at schema definition time. It also includes identifiers for well-known columns that have semantics needed across the NIEM community.
+   This document establishes methods for using code list artifacts with NIEM information exchange specifications. It provides for the use of Genericode documents, as well as for CSV code lists. It supports the use of code lists at schema definition time, via annotations for XML Schema documents that bind schema components to code lists. It supports the use of code lists at run time, via XML Schema components for use in XML documents that bind XML data to code lists. It also includes identifiers for well-known columns that have semantics needed across the NIEM community.
 
    Previous generations of NIEM code lists were represented using only simple data types defined by the [XML Schema definition language]. Each code list was represented only by sets of code values, each with its definition. This specification generalizes the use of code lists to incorporate code list tables defined as separate artifacts, allowing for additional columns beyond code value and definition. It supports CSV files as code lists. It also supports Genericode as a concrete representation of these complex code lists, allowing for advanced functionality such as keys composed of multiple columns. This specification allows for late binding, allowing run-time choice of code list or column.
+
+   Features of this specification may be used in combination with other methods of representing code lists in exchanges, such as the use of enumerated values in simple types defined by XML Schema documents.
+
+   This specification describes an abstract model for code lists, and describes implementation of that model via Genericode and CSV files. Use of additional representations may be incorporated into future versions of this specification, as needed. In addition, the metadata and methods described by this document may support web service interactions for code list access, although such a mechanism is not described herein.
 
 1.1. Code list example
 
