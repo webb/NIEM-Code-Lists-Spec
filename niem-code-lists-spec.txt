@@ -1032,25 +1032,19 @@ Rule 6-1. Genericode code list document defined by Genericode
 
          A Genericode code list document has the root element <gc:CodeList>. It contains metadata describing the code list as a whole, as well as explicit code list data -- codes and associated values.
 
-Rule 6-2. Genericode code list document has conformance target
+Rule 6-2. Document with conformance target is Genericode code list document
 
-   [Rule 6-2] (GC-CLD)
-
-      A [Genericode code list document] MUST have an [effective conformance target identifier] of http://reference.niem.gov/niem/specification/code-lists/4.0/#GenericodeCodeListDocument.
-
-Rule 6-3. Document with conformance target is Genericode code list document
-
-   [Rule 6-3] (VSET)
+   [Rule 6-2] (VSET)
 
       A [resource] with an [effective conformance target identifier] of http://reference.niem.gov/niem/specification/code-lists/4.0/#GenericodeCodeListDocument MUST be a [Genericode code list document].
 
-Rule 6-4. Genericode code list document is schema-valid
+Rule 6-3. Genericode code list document is schema-valid
 
-   [Rule 6-4] (GC-CLD)
+   [Rule 6-3] (GC-CLD)
 
       A [Genericode code list document] MUST be [schema-valid] against the schema document for the Genericode namespace as provided at http://docs.oasis-open.org/codelist/ns/genericode/1.0/.
 
-Rule 6-5. XML Schema alternate datatypes are treated the same as built in datatypes
+Rule 6-4. XML Schema alternate datatypes are treated the same as built in datatypes
 
    [XMLSchema2] defines an alternate namespace name as an alias that may be used to refer to simple datatypes it defines. [XMLSchema2] Section 3.1, Namespace considerations states:
 
@@ -1062,13 +1056,13 @@ Rule 6-5. XML Schema alternate datatypes are treated the same as built in dataty
 
    [Genericode] uses this alternate namespace name as a default for the datatype library in Genericode documents, referring to it as "the URI for W3C XML Schema datatypes". As this separate namespace is not expressing a semantic distinction, and in order to keep Genericode documents simple, this document specifies that the alternate namespace name is to be treated as if it was the namespace name for the XML Schema definition language.
 
-   [Rule 6-5] (GC-CLD)
+   [Rule 6-4] (GC-CLD)
 
       A datatype with a namespace name of http://www.w3.org/2001/XMLSchema-datatypes MUST be evaluated as if it had a namespace name of http://www.w3.org/2001/XMLSchema.
 
-Rule 6-6. Genericode file as a code list document
+Rule 6-5. Genericode file as a code list document
 
-   [Rule 6-6] (GC-CLD)
+   [Rule 6-5] (GC-CLD)
 
       A [Genericode code list document] may act as a [code list document] in the following manner:
 
@@ -1104,7 +1098,7 @@ Rule 6-6. Genericode file as a code list document
 
    In addition to well-known columns, this specification defines well-known column references. A well-known column reference is used in [code list bindings]. The well-known column references defined by this specification are:
 
-      *  "#code": A binding will use the column name "#code" to refer to a default code value in a code list. Each class of [code list document] defines how a reference to "#code" is resolved (q.v. Rule 5-4, CSV file as a code list document, above, and Rule 6-6, Genericode file as a code list document, above). A binding that doesn't specify a column name will default to column name "#code".
+      *  "#code": A binding will use the column name "#code" to refer to a default code value in a code list. Each class of [code list document] defines how a reference to "#code" is resolved (q.v. Rule 5-4, CSV file as a code list document, above, and Rule 6-5, Genericode file as a code list document, above). A binding that doesn't specify a column name will default to column name "#code".
 
       *  "#range": A binding will use the column name "#range" to match into a range of values, as described by Section 7.5, Columns supporting ranges of values, below. 
 
@@ -1978,9 +1972,8 @@ Appendix G. Index of rules
    Rule 5-3, CSV column name is not empty: Section 5, Comma-separated values (CSV) code lists
    Rule 5-4, CSV file as a code list document: Section 5, Comma-separated values (CSV) code lists
    Rule 6-1, Genericode code list document defined by Genericode: Section 6, Genericode code lists
-   Rule 6-2, Genericode code list document has conformance target: Section 6, Genericode code lists
-   Rule 6-3, Document with conformance target is Genericode code list document: Section 6, Genericode code lists
-   Rule 6-4, Genericode code list document is schema-valid: Section 6, Genericode code lists
-   Rule 6-5, XML Schema alternate datatypes are treated the same as built in datatypes: Section 6, Genericode code lists
-   Rule 6-6, Genericode file as a code list document: Section 6, Genericode code lists
+   Rule 6-2, Document with conformance target is Genericode code list document: Section 6, Genericode code lists
+   Rule 6-3, Genericode code list document is schema-valid: Section 6, Genericode code lists
+   Rule 6-4, XML Schema alternate datatypes are treated the same as built in datatypes: Section 6, Genericode code lists
+   Rule 6-5, Genericode file as a code list document: Section 6, Genericode code lists
 
