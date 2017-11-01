@@ -1190,6 +1190,89 @@ Rule 6-6. Genericode file as a code list document
 
    Description: A value that is an [exclusive upper bound] of a range.
 
+7.6. Code list example using well-known columns
+
+   The following examples show well-known columns being reused in a code list. A single code list is presented as an abstract table, corresponding CSV, and portions of corresponding Genericode. First, Table Table 7-2, Use of columns in a code list, below, is a tabular representation.
+
+   Table 7-2: Use of columns in a code list
+
+      code|definition|uri
+
+      application/json|json|https://www.iana.org/assignments/media-types/application/json
+
+      application/msword|doc|https://www.iana.org/assignments/media-types/application/msword
+
+      application/pdf|pdf|https://www.iana.org/assignments/media-types/application/pdf
+
+   In this table, we see the well-known columns "code", "definition", and "uri" being used. The next three rows represent the [distinct entries] of the code list, with a [code value] for each [column].
+
+   Figure 7-2, Definition of columns in Genericode, below, shows a CSV file corresponding to the abstract table. In this version, the columns are identifiable as well-known columns because each [CSV column name] is a [column name] of a well-known column defined above.
+
+   Figure 7-2: Definition of columns in Genericode
+
+      code,definition,uri
+      application/json,json,https://www.iana.org/assignments/media-types/application/json
+      application/msword,doc,https://www.iana.org/assignments/media-types/application/msword
+      application/pdf,pdf,https://www.iana.org/assignments/media-types/application/pdf
+
+   For the above code list, Genericode in Figure 7-3, Definition of columns in Genericode, below, defines columns that reuse the well-known columns. Each column is identifiable as a well-known column because its CanonicalUri value is a [column identifier] of a well-known column.
+
+   Figure 7-3: Definition of columns in Genericode
+
+      <Column Id="code" Use="required">
+        <ShortName>code</ShortName>
+        <CanonicalUri>http://reference.niem.gov/niem/specification/code-lists/4.0/column/code</CanonicalUri>
+        <Data Type="normalizedString" Lang="en"/>
+      </Column>
+      <Column Id="definition" Use="optional">
+        <ShortName>definition</ShortName>
+        <CanonicalUri>http://reference.niem.gov/niem/specification/code-lists/4.0/column/definition</CanonicalUri>
+        <Data Type="normalizedString" Lang="en"/>
+      </Column>
+      <Column Id="uri" Use="optional">
+        <ShortName>uri</ShortName>
+        <CanonicalUri>http://reference.niem.gov/niem/specification/code-lists/4.0/column/uri</CanonicalUri>
+        <Data Type="anyURI" Lang="en"/>
+      </Column>
+
+   Figure 7-4, Distinct entries in Genericode, below, contains distinct entries for the code lists, in the form of Genericode rows. These rows contain the same data as the other code list representations above.
+
+   Figure 7-4: Distinct entries in Genericode
+
+      <Row>
+        <Value ColumnRef="code">
+          <SimpleValue>application/json</SimpleValue>
+        </Value>
+        <Value ColumnRef="definition">
+          <SimpleValue>json</SimpleValue>
+        </Value>
+        <Value ColumnRef="uri">
+          <SimpleValue>https://www.iana.org/assignments/media-types/application/json</SimpleValue>
+        </Value>
+      </Row>
+      <Row>
+        <Value ColumnRef="code">
+          <SimpleValue>application/msword</SimpleValue>
+        </Value>
+        <Value ColumnRef="definition">
+          <SimpleValue>doc</SimpleValue>
+        </Value>
+        <Value ColumnRef="uri">
+          <SimpleValue>https://www.iana.org/assignments/media-types/application/msword</SimpleValue>
+        </Value>
+      </Row>
+      <Row>
+        <Value ColumnRef="code">
+          <SimpleValue>application/pdf</SimpleValue>
+        </Value>
+        <Value ColumnRef="definition">
+          <SimpleValue>pdf</SimpleValue>
+        </Value>
+        <Value ColumnRef="uri">
+          <SimpleValue>https://www.iana.org/assignments/media-types/application/pdf</SimpleValue>
+        </Value>
+      </Row>
+
 Appendix A. References
 
    [CTAS]: Roberts, Webb. "NIEM Conformance Targets Attribute Specification, Version 3.0." NIEM Technical Architecture Committee, July 31, 2014. http://reference.niem.gov/niem/specification/conformance-targets-attribute/3.0/NIEM-CTAS-3.0-2014-07-31.html.
