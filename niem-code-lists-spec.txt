@@ -966,17 +966,11 @@ Rule 5-3. CSV column name is not empty
 
       A [CSV column name] of a [CSV code list document] MUST not be empty.
 
-Rule 5-4. CSV column name is not empty
-
-   [Rule 5-4] (CSV-CLD)
-
-      Each [CSV record] MUST have the same number of [CSV fields] as its [CSV header] has [CSV column names].
-
    The definitions of CSV structural terms are provided by [RFC4180], as noted in Section 2.10, RFC 4180: Comma-separated values (CSV) files, above.
 
-Rule 5-5. CSV file as a code list document
+Rule 5-4. CSV file as a code list document
 
-   [Rule 5-5] (CSV-CLD)
+   [Rule 5-4] (CSV-CLD)
 
       A [CSV file] may act as a [CSV code list document] in the following manner:
 
@@ -1082,7 +1076,7 @@ Rule 6-6. Genericode file as a code list document
 
    In addition to well-known columns, this specification defines well-known column references. A well-known column reference is used in [code list bindings]. The well-known column references defined by this specification are:
 
-      *  "#code": A binding will use the column name "#code" to refer to a default code value in a code list. Each class of [code list document] defines how a reference to "#code" is resolved (q.v. Rule 5-5, CSV file as a code list document, above, and Rule 6-6, Genericode file as a code list document, above). A binding that doesn't specify a column name will default to column name "#code".
+      *  "#code": A binding will use the column name "#code" to refer to a default code value in a code list. Each class of [code list document] defines how a reference to "#code" is resolved (q.v. Rule 5-4, CSV file as a code list document, above, and Rule 6-6, Genericode file as a code list document, above). A binding that doesn't specify a column name will default to column name "#code".
 
       *  "#range": A binding will use the column name "#range" to match into a range of values, as described by Section 7.5, Columns supporting ranges of values, below. 
 
@@ -1871,8 +1865,7 @@ Appendix G. Index of rules
    Rule 5-1, CSV code list document is a CSV file: Section 5, Comma-separated values (CSV) code lists
    Rule 5-2, CSV code list document has header: Section 5, Comma-separated values (CSV) code lists
    Rule 5-3, CSV column name is not empty: Section 5, Comma-separated values (CSV) code lists
-   Rule 5-4, CSV column name is not empty: Section 5, Comma-separated values (CSV) code lists
-   Rule 5-5, CSV file as a code list document: Section 5, Comma-separated values (CSV) code lists
+   Rule 5-4, CSV file as a code list document: Section 5, Comma-separated values (CSV) code lists
    Rule 6-1, Genericode code list document defined by Genericode: Section 6, Genericode code lists
    Rule 6-2, Genericode code list document has conformance target: Section 6, Genericode code lists
    Rule 6-3, Document with conformance target is Genericode code list document: Section 6, Genericode code lists
