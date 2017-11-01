@@ -88,7 +88,7 @@ Table of Tables
 
       *  The code list [columns] are the vertical stacks "Make code", "Make description", "Model code", "Model description", and "Class". Each column has a header and a slot within each distinct entry.
 
-   What we see above is a use of a code list, but there are things missing; in order to make code lists and their uses machine-readable and verifiable, this specification provides:
+   What we see above is a code list, but there are things missing; in order to make code lists and their uses machine-readable and verifiable, this specification provides:
 
       1. Machine-readable formats for code lists. This specification provides for the use of Genericode, an XML representation, for code lists. It provides for the use of CSV files to represent code lists. It also provides a foundation for other representations of code lists, to be identified and implemented later.
 
