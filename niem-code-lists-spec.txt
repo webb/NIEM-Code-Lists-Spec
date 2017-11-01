@@ -36,7 +36,33 @@ Table of Tables
 
    This document establishes methods for using code list artifacts with NIEM information exchange specifications. It provides for the use of Genericode documents, as well as for CSV code lists. It supports the use of code lists at schema definition time, via annotations for XML Schema documents that bind schema components to code lists. It supports the use of code lists at run time, via XML Schema components for use in XML documents that bind XML data to code lists. It also includes identifiers for well-known columns that have semantics needed across the NIEM community.
 
-   Previous generations of NIEM code lists were represented using only simple data types defined by the [XML Schema definition language]. Each code list was represented only by sets of code values, each with its definition. This specification generalizes the use of code lists to incorporate code list tables defined as separate artifacts, allowing for additional columns beyond code value and definition. It supports CSV files as code lists. It also supports Genericode as a concrete representation of these complex code lists, allowing for advanced functionality such as keys composed of multiple columns. This specification allows for late binding, allowing run-time choice of code list or column.
+   This specification supplements the use of XML Schema enumerations and simple types as a representation of code lists for information exchanges, which is sufficient for many use cases. The use of separate artifacts for code lists, along with annotations for XML Schema documents, has several goals and benefits, including include:
+
+      *  Highly detailed and precise code lists, including:
+
+            *  Multiple columns may be used to carry additional information about a code, or about a concept represented by a code.
+
+            *  Multiple fields in an exchange may be validated against the same code list, enabling the use of composite keys composed of values from multiple columns of a code list. This supports use cases such as validation of both make and model of a vehicle, or state and county of a location.
+
+            *  Support for relationships between codes, via the "subclass-of" column, so that one entry in a code list can described as a specialization of another entry.
+
+            *  Support for multiple languages for code definitions and other information.
+
+      *  Independent version management of code lists and XML schemas for information exchange. A single version of a code list may be used for multiple exchanges, and a single exchange specification may use multiple versions of a code list. As well, an exchange may support multiple versions of a code list simultaneously.
+
+      *  Easy updating of code lists within schema sets and operational systems.
+
+      *  A code list may be represented as a CSV spreadsheet document, enabling easy editing and importing of codes and supporting data.
+
+      *  A code list may be represented as a Genericode XML document, supporting XML approaches to metadata management, and supporting the advanced features of Genericode, including version management and composite keys.
+
+      *  Code lists may be specified at schema time, in which case code list identifiers may appear in XML Schema documents.
+
+      *  Code lists may be specified at run time, in which case code list identifiers may appear in XML messages.
+
+      *  Software for resolving code list identifiers to code list documents is included in many software platforms, via implementations of entity resolvers that use XML Catalogs.
+
+   This specification expands support for code lists, by enabling code lists to be managed independently of XML Schema documents, while still allowing them to support development of XML schemas and to be used for run-time validation. With the support of this specification, a single revision of a code list document may be used with multiple information exchange specifications. As well, a single information exchange specification may be used with multiple versions of a code list.
 
    Features of this specification may be used in combination with other methods of representing code lists in exchanges, such as the use of enumerated values in simple types defined by XML Schema documents.
 
