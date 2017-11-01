@@ -584,7 +584,7 @@ Table of Tables
 
    [Definition: CSV code list document]
 
-      A CSV code list document is a [code list document]. It is a [conformance target] of this specification. A CSV code list document MUST conform to all rules of this specification that apply to this conformance target.
+      A CSV code list document is a [code list document]. It is a [conformance target] of this specification. A CSV code list document MUST conform to all rules of this specification that apply to this conformance target. The [conformance target identifier] for this conformance target is http://reference.niem.gov/niem/specification/code-lists/4.0/#CSVCodeListDocument.
 
 3.4. Code list-enabled schema document
 
