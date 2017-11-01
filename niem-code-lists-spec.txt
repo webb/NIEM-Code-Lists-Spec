@@ -132,7 +132,7 @@ Table of Tables
 
    This specification provides for representing code lists using CSV files and Genericode files. The code list in Table Table 1-1, Example code list: vehicle makes and models, above, may be represented as a CSV or Genericode document, as shown in Appendix D.2, Make-Model code list CSV file, below, and Appendix D.3, Make-Model code list Genericode file, below.
 
-   This specification provides for the use of CSV files and Genericode files as code lists. It also provides a framework for code lists that may be implemented using other formats. The syntax of code list bindings and code list use in instance documents may leverage formats other than CSV and Genericode. Future specifications may identify how other formats satisfy the code list framework defined by this document. 
+   This specification also provides a framework for code lists that may be implemented using other formats. The syntax of code list bindings and code list use in instance documents may leverage formats other than CSV and Genericode. Future specifications may identify how other formats satisfy the code list framework defined by this document. 
 
 1.3. Identifiers for code lists
 
