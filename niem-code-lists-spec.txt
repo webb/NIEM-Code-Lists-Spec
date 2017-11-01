@@ -116,7 +116,7 @@ Table of Tables
 
    What we see above is a code list, but there are things missing; in order to make code lists and their uses machine-readable and verifiable, this specification provides:
 
-      1. Machine-readable formats for code lists. This specification provides for the use of Genericode, an XML representation, for code lists. It provides for the use of CSV files to represent code lists. It also provides a foundation for other representations of code lists, to be identified and implemented later.
+      1. Machine-readable formats for code lists. This specification provides for the use of Genericode (an XML representation) and CSV files to represent code lists. It also provides a foundation for other representations of code lists, to be identified and implemented later.
 
       2. Identifiers for code lists. This specification defines that an [absolute URI] is an identifier for a code list (as well, [Genericode] distinguishes between an identifier for a class of code lists and an identifier for a particular version of a code list). This specification also defines an [absolute URI] as an identifier for a column, and a character string value as a name of a column within a code list.
 
