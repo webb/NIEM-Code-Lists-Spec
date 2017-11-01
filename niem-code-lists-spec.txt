@@ -84,7 +84,7 @@ Table of Tables
 
       *  The [distinct entries] are the rows (excluding the header) that start with "FORD", "HOND", etc.
 
-      *  the [code values] are the values of the individual table cells (excluding the header), including "FORD", "Ford", "FUS", "Fusion", etc.
+      *  The [code values] are the values of the individual table cells (excluding the header), including "FORD", "Ford", "FUS", "Fusion", etc.
 
       *  The code list [columns] are the vertical stacks "Make code", "Make description", "Model code", "Model description", and "Class". Each column has a header and a slot within each distinct entry.
 
